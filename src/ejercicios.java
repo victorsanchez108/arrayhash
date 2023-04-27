@@ -1,5 +1,3 @@
-import javax.sound.midi.Soundbank;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class ejercicios {
@@ -83,7 +81,7 @@ public class ejercicios {
 
         }while (n!=0);
         System.out.println("B)");
-        Iterator it = ej2.iterator();
+        Iterator<Integer> it = ej2.iterator();
         while (it.hasNext()){
             System.out.println(it.next());
         }
@@ -155,17 +153,69 @@ public class ejercicios {
         System.out.println(ej3.size());
         
     }
-    public static void ejercicio4(Scanner sc){
-        partidoej4 partidos = new partidoej4();
+    public static void ejercicio4(Scanner sc) {
+        ArrayList<partidoej4> partidos = new ArrayList<>();
+
+        partidoej4 partido1 = new partidoej4("Guadalcacín F.S.", "Leganés FSF", 1, 7);
+        partidos.add(partido1);
+        partidoej4 partido2 = new partidoej4("Jimbee Roldán F.S.F.", "F.S.F. Mostoles", 2, 2);
+        partidos.add(partido2);
+        partidoej4 partido3 = new partidoej4("Burela F.S.", " A.D. Sala Zaragoza F.S.", 2, 0);
+        partidos.add(partido3);
+        partidoej4 partido4 = new partidoej4("A.E. Penya Esplugues", "Viaxes Amarelle F.S.", 1, 0);
+        partidos.add(partido4);
+        partidoej4 partido5 = new partidoej4("Femisport Palau Club ", "Poio Pescamar F.S.", 2, 2);
+        partidos.add(partido5);
+        partidoej4 partido6 = new partidoej4("Majadahonda F.S.F.", " C.D. Universidad De Alicante", 1, 6);
+        partidos.add(partido6);
+        partidoej4 partido7 = new partidoej4("C.D. Futsi Atletico Feminas", " UCAM El Pozo Murcia FS", 8, 0);
+        partidos.add(partido7);
+        partidoej4 partido8 = new partidoej4("A. D. Alcorcón F.S.", " Ourense Envialia C.F.", 3, 4);
+        partidos.add(partido8);
 
 
+        Iterator<partidoej4> it = partidos.iterator();
+        int viclocal = 0, vicvis = 0, emp = 0, mayorg = 0, eqgo = 0, max = Integer.MIN_VALUE;
+        while (it.hasNext()) {
+            partidoej4 partido = it.next();
+            if (partido.getGoleslocal() > max) {
+                max = partido.getGoleslocal();
+                if (partido.getGolesvisitante() > max) {
+                    max = partido.getGolesvisitante();
+                }
+            }
+
+
+            System.out.println(partido.getEquipolocal() + " " + partido.getGoleslocal() + "-" + partido.getGolesvisitante() + " " + partido.getEquipovisitante());
+            if (partido.getGolesvisitante() > partido.getGoleslocal()) {
+                vicvis++;
+            } else if (partido.getGoleslocal() > partido.getGolesvisitante()) {
+                viclocal++;
+            } else {
+                emp++;
+            }
+
+        }
+        System.out.println("------------------------------------");
+        System.out.println("Partidos victora local " + viclocal);
+        System.out.println("Partidos victora visitante " + vicvis);
+        System.out.println("Partidos empate " + emp);
+        Iterator<partidoej4> it2 = partidos.iterator();
+        while (it2.hasNext()) {
+            partidoej4 partidods = it2.next();
+            if (partidods.getGolesvisitante() == max) {
+                System.out.println(partidods.getEquipolocal() + "  " + partidods.getGoleslocal() + "-" + partidods.getGolesvisitante() + " " + partidods.getEquipovisitante());
+                System.out.println(partidods.getEquipolocal());
+            } else if (partidods.getGoleslocal() == max) {
+                System.out.println(partidods.getEquipolocal() + "  " + partidods.getGoleslocal() + "-" + partidods.getGolesvisitante() + " " + partidods.getEquipovisitante());
+                System.out.println(partidods.getEquipolocal());
+            }
+
+
+        }
 
 
     }
-
-
-
-
 
 
 

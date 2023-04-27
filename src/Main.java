@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ejercicios ejercicio = new ejercicios();
         int menu;
 
         do {
@@ -11,28 +10,27 @@ public class Main {
                 System.out.println(i + ".ejercicio --> " + i);
             }
             System.out.println("0.Salir");
-            System.out.printf(": ");
+            System.out.print(": ");
             menu = sc.nextInt();
 
 
             switch (menu) {
-                case 1:
+                case 1 -> {
                     sc.nextLine();
-                    ejercicio.ejercicio1(sc);
-                    break;
-                case 2:
+                    ejercicios.ejercicio1(sc);
+                }
+                case 2 -> {
                     sc.nextLine();
-                    ejercicio.ejercicio2(sc);
-                    break;
-                case 3:
+                    ejercicios.ejercicio2(sc);
+                }
+                case 3 -> {
                     sc.nextLine();
-                    ejercicio.ejercicio3(sc);
-                    break;
-                case 4:
+                    ejercicios.ejercicio3(sc);
+                }
+                case 4 -> {
                     sc.nextLine();
-                    ejercicio.ejercicio4(sc);
-                    break;
-
+                    ejercicios.ejercicio4(sc);
+                }
             }
 
         } while (menu != 0);
