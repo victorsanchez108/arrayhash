@@ -1,3 +1,5 @@
+import javax.sound.midi.Soundbank;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class ejercicios {
@@ -216,6 +218,129 @@ public class ejercicios {
 
 
     }
+
+    public static void ejercicio5(Scanner sc){
+        ArrayList<personaej5> personas = new ArrayList<>();
+        personaej5 persona1 = new personaej5("Lola1" , 241);
+        personas.add(persona1);
+        personaej5 persona2 = new personaej5("Lola2" , 242);
+        personas.add(persona2);
+        personaej5 persona3 = new personaej5("Lola3" , 243);
+        personas.add(persona3);
+        personaej5 persona4 = new personaej5("Lola4" , 244);
+        personas.add(persona4);
+        personaej5 persona5 = new personaej5("Lola5" , 245);
+        personas.add(persona5);
+        personaej5 persona6 = new personaej5("Lola6" , 246);
+        personas.add(persona6);
+        personaej5 persona7 = new personaej5("Lola7" , 247);
+        personas.add(persona7);
+        personaej5 persona8 = new personaej5("Victor" , 21);
+        personas.add(persona8);
+
+        System.out.println(personas);
+
+        Collections.sort(personas , new Comparator<personaej5>() {
+            @Override
+            public int compare(personaej5 p1, personaej5 p2) {
+                return  Integer.compare(p1.getEdad(),p2.getEdad());
+            }
+        });
+        System.out.println("Ordenado 1");
+        System.out.println(personas);
+        Collections.sort(personas , new Comparator<personaej5>() {
+            @Override
+            public int compare(personaej5 p1, personaej5 p2) {
+                return  Integer.compare(p2.getEdad(),p1.getEdad());
+            }
+        });
+        System.out.println("Ordenado 2 ");
+        System.out.println(personas);
+
+
+
+
+        System.out.println("\n");
+
+
+
+    }
+    public static void ejercicio6(Scanner sc){
+        int menu2;
+        agendaej6 pre = new agendaej6();
+        contactoej6 hola = new contactoej6();
+
+        do {
+            System.out.println("1- Añadir contacto");
+            System.out.println("2- Eliminar contacto");
+            System.out.println("3- Buscar contacto con telefono");
+            System.out.println("4 -Busca contacto con nombre y apellido");
+            System.out.println("5- Mostrar agenda");
+            System.out.println("0- Salir");
+            menu2 = sc.nextInt();
+            sc.nextLine();
+
+            switch (menu2){
+                case 1:
+                    System.out.println("Dame el nombre");
+                    hola.setNombre(sc.nextLine());
+                    System.out.println("Dame el apellido");
+                    hola.setApellidos(sc.nextLine());
+                    System.out.println("Dame el numero de telefono");
+                    hola.setTelefono(sc.nextLine());
+                    pre.nuevocontacto(hola);
+                    break;
+                case 2:
+                    String nombre,apellidoss;
+                    System.out.println("Para eliminar un contacto dame el nombre y el apellido");
+                    System.out.println("Nombre: ");
+                    nombre = sc.nextLine();
+                    System.out.println("Apellido: ");
+                    apellidoss = sc.nextLine();
+                   if(pre.eliminarcontacto(nombre,apellidoss)){
+                       pre.eliminarcontacto(nombre,apellidoss);
+                       System.out.println("Se ha eliminado correctamente");
+                   }else {
+                       System.out.println("No existe el contacto");
+                   }
+
+                    break;
+                case 3:
+                    String telfbus;
+                    System.out.println("Dame el telefono");
+                    telfbus = sc.nextLine();
+                    if(hola.getTelefono().equals(telfbus)){
+                        System.out.println("Nombre: "+ hola.getNombre() + " apellido " + hola.getApellidos());
+
+                    }
+                    break;
+                case 4:
+                    String nombre2,apellidoss2;
+                    System.out.println("Nombre: ");
+                    nombre2 = sc.nextLine();
+                    System.out.println("Apellido: ");
+                    apellidoss2 = sc.nextLine();
+                    if(hola.getNombre().equals(nombre2) && hola.getApellidos().equals(apellidoss2)){
+                        System.out.println("El telefono es: "+ hola.getTelefono());
+                    }
+                    break;
+                case 5:
+                    pre.mostrarAgenda();
+                    break;
+
+
+
+            }
+
+
+
+        }while (menu2!=0);
+
+
+    }
+
+
+
 
 
 

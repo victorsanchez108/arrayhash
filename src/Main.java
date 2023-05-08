@@ -16,7 +16,7 @@ public class Main {
 
             switch (menu) {
                 case 1 -> {
-                    sc.nextLine();
+
                     ejercicios.ejercicio1(sc);
                 }
                 case 2 -> {
@@ -30,6 +30,14 @@ public class Main {
                 case 4 -> {
                     sc.nextLine();
                     ejercicios.ejercicio4(sc);
+                }
+                case 5 -> {
+                    sc.nextLine();
+                    ejercicios.ejercicio5(sc);
+                }
+                case 6 -> {
+                    sc.nextLine();
+                    ejercicios.ejercicio6(sc);
                 }
             }
 
